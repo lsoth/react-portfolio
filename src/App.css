@@ -26,9 +26,8 @@
     padding: 4rem 0;
 }
 
-.contacts input:focus, .contacts textarea:focus {
-    background: transparent;
-    color: orange;
-    border-bottom: 0.125 rem black;
-}
+.profile-pic {
+    max-width: 25vw;
+    max-height: 25vh;
 
+}
