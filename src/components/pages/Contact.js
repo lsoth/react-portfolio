@@ -1,35 +1,32 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
+import { useForm } from 'react-hook-form';
+
 
 export default function Contact() {
   const [successMessage, setSuccessMessage] = useState("");
-  const { register, handleSubmit, errors } = useForm();
-
+  const { register, handleSubmit, errors} = useForm();
   const serviceID = "service_f3r3hmm";
   const templateID = "template_8e1e9o9";
   const userID = "user_PIQut8WmbYB2zGxXFh4Vu";
 
   const onSubmit = (data, r) => {
     sendEmail(
-      serviceID,
-      templateID,
-      {
+      serviceID, templateID, {
         name: data.name,
         phone: data.phone,
         email: data.email,
         subject: data.subject,
         description: data.description
-      },
-      userID
-    )
-    r.target.reset();
+      }, userID)
+      r.target.reset()
   }
 
-  const sendEmail = (serviceID, templateID, variables, userID) => {
+  const sendEmail = (serviceID, templateID, variables,) => {
     emailjs.send(serviceID, templateID, variables, userID)
       .then(() => {
-        setSuccessMessage("Form sent successfully! I'll contact you as soon as possible.");
-      }).catch(err => console.error(`Something went wrong ${err}`));
+        setSuccessMessage("Contact Info Submitted!");
+      }).catch(err => console.error(`Ooops something is wrong ${err}`));
   }
 
   return (
@@ -41,6 +38,7 @@ export default function Contact() {
         </div>
       </div>
     <div className="container">
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div className="row">
         <div className="col-md-6 col-xs-12">
         {/* Name Input */}
@@ -72,6 +70,7 @@ export default function Contact() {
         <button className="btn-main-offer contact-btn" type="submit">Contact Me</button>
         </div>
       </div>
+      </form>
     </div>
     </div>
   );
