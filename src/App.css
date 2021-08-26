@@ -1,0 +1,34 @@
+.contacts {
+    background: gray;
+    padding: 3rem 0;
+}
+
+.contacts h1 {
+    color: darkcyan;
+    padding: 1.3 rem 0;
+}
+
+.contacts input, .contacts textarea {
+    width: 100%;
+    box-sizing: border-box;
+    background: none;
+    resize: none;
+    border: 0;
+    border-bottom: 0.125rem solid black;
+    border-radius: 0;
+    color: black;
+    outline: 0;
+    box-shadow: none;
+    top:0;
+}
+
+.contacts .container {
+    padding: 4rem 0;
+}
+
+.contacts input:focus, .contacts textarea:focus {
+    background: transparent;
+    color: orange;
+    border-bottom: 0.125 rem black;
+}
+
